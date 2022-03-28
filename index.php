@@ -10,6 +10,5 @@ require_once 'core/bootstrap.php';
  * create object from your program
  *
 */
-
-//$App = new Core();
+new Core();
 ?>
