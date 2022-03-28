@@ -17,6 +17,12 @@ require_once 'lan/' . $SETTINGS['LAN'] . '.php';
 
 /*
  *
+ * include core/Error.php
+ *
+*/
+require_once  'core/Error.php';
+/*
+ *
  * include core/Request.php
  *
  */
