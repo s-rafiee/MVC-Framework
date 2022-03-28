@@ -36,3 +36,12 @@ require_once 'core/Controller.php';
  *
 */
 require_once 'core/Route.php';
+
+/*
+ *
+ * include core/Core.php
+ *
+ */
+require_once 'core/Core.php';
+
+
