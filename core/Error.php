@@ -11,7 +11,7 @@ class Erorr {
              */
             require_once 'app/views/Erorrs/503.blade.php';
         }else{
-            print_r('<html><head><style>body{overflow: hidden; background:#2c3e50; direction:rtl;text-align:center;}div{ background:#ecf0f1;color:#e74c3c; width:100%; padding:10px 0px;}</style></head><body><div>ASSET_ERROR_COR[]'.$type.'</div></body></html>');
+            print_r('<html><head><style>body{overflow: hidden; background:#2c3e50; direction:rtl;text-align:center;}div{ background:#ecf0f1;color:#e74c3c; width:100%; padding:10px 0px;}</style></head><body><div>'.$GLOBALS['lan'][$type].'</div></body></html>');
         }
     }
 }

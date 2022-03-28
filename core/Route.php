@@ -22,7 +22,7 @@ class Route
         */
         $url = preg_replace("@^/|/$@", "", strtolower($url));
         $url = explode('/', filter_var(trim($url, '/'), FILTER_SANITIZE_URL));
-
+        $middlewares = [];
         /*
          * prefix of url
         */
@@ -30,8 +30,11 @@ class Route
             if (isset($array['prefix'])) {
                 $url = array_merge([$array['prefix']], $url);
             }
+            if (isset($array['middlewares'])) {
+                $middlewares = $array['middlewares'];
+            }
         }
-        array_push(Route::$routes_list['get'], array("url" => $url, "controller" => $controller));
+        array_push(Route::$routes_list['get'], array("url" => $url, "controller" => $controller, 'middlewares' => $middlewares));
     }
 
     /*
@@ -44,6 +47,7 @@ class Route
         */
         $url = preg_replace("@^/|/$@", "", strtolower($url));
         $url = explode('/', filter_var(trim($url, '/'), FILTER_SANITIZE_URL));
+        $middlewares = null;
 
         /*
          * prefix of url
@@ -52,8 +56,11 @@ class Route
             if (isset($array['prefix'])) {
                 $url = array_merge([$array['prefix']], $url);
             }
+            if (isset($array['middlewares'])) {
+                $middlewares = $array['middlewares'];
+            }
         }
-        array_push(Route::$routes_list['post'], array("url" => $url, "controller" => $controller));
+        array_push(Route::$routes_list['post'], array("url" => $url, "controller" => $controller, 'middlewares' => $middlewares));
     }
 
 }

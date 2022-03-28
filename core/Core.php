@@ -142,17 +142,20 @@ class Core
                         /*
                          * call Middleware
                         */
+                        if ($selected_route['middlewares']){
+                            if (file_exists('App/middlewares/' . $selected_route['middlewares'] . '.php')) {
+                                require_once 'App/middlewares/' . $selected_route['middlewares'] . '.php';
+                                $response = $selected_route['middlewares']::run(Request::class, $controller_obj, $Methode, $param);
 
-                        /*
-                         * call Request
-                        */
-//                        Request::Run();
-                        $r = new Request();
-                        unset($r);
-                        /*
-                         * call methode and send parameter
-                         */
-                        $response = call_user_func_array([$controller_obj, $Methode], $param);
+                            } else {
+                                Erorr::alert("middleware_exists");
+                            }
+                        }else{
+                            /*
+                             * call methode and send parameter
+                             */
+                            $response = call_user_func_array([$controller_obj, $Methode], $param);
+                        }
                         print_r($response);
 
                     } else {

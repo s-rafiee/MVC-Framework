@@ -8,7 +8,6 @@ class HomeController extends Controller
      */
     public function index($user = null)
     {
-        print_r($user);
         $data = [];
         for ($i = 0; $i < 10; $i++) {
             $data['posts'][] = [

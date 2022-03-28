@@ -11,4 +11,4 @@ RewriteCond %{REQUEST_URI} /+[^\.]+$
 RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L]
 
 
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteRule ^(.+)$ index.php [QSA,L]
